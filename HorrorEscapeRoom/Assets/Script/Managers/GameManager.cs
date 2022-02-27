@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Cursor.visible = false;
+        //Cursor.visible = false;
         if (instance == null)
         {
             instance = this;

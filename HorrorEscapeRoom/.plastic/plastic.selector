@@ -1,0 +1,4 @@
+repository "HorrorEscapeRoom@MakitGames@cloud"
+  path "/"
+    br "/main"
+    co "/main"

@@ -28,28 +28,31 @@ public class Flashlight : MonoBehaviour
 
     void Update()
     {
-        if (flashOn)
+        if (GameManager.Instance.playerCanControl)
         {
-            light.enabled = true;
-            curTime += Time.deltaTime;
-            if (curTime > blinkTimer)
+            if (flashOn)
             {
-                flashOn = false;
-                curTime = 0;
-                blinkTimer = Random.Range(minTime, maxTime);
+                light.enabled = true;
+                curTime += Time.deltaTime;
+                if (curTime > blinkTimer)
+                {
+                    flashOn = false;
+                    curTime = 0;
+                    blinkTimer = Random.Range(minTime, maxTime);
+                }
             }
-        }
-        else
-        {
-            light.enabled = false;
-            curTime += Time.deltaTime;
-            if (curTime > stuckTimer)
+            else
             {
-                flashOn = true;
-                curTime = 0;
+                light.enabled = false;
+                curTime += Time.deltaTime;
+                if (curTime > stuckTimer)
+                {
+                    flashOn = true;
+                    curTime = 0;
+                }
             }
+            var pov = CameraManager.Instance.virCam.GetCinemachineComponent<CinemachinePOV>();
+            gameObject.transform.rotation = Quaternion.Euler(new Vector3(pov.m_VerticalAxis.Value, pov.m_HorizontalAxis.Value, 0));
         }
-        var pov = CameraManager.Instance.virCam.GetCinemachineComponent<CinemachinePOV>();
-        gameObject.transform.rotation = Quaternion.Euler(new Vector3(pov.m_VerticalAxis.Value, pov.m_HorizontalAxis.Value, 0));
     }
 }

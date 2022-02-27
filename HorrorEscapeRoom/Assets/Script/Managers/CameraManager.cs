@@ -27,7 +27,32 @@ public class CameraManager : MonoBehaviour
     #endregion
 
     public CinemachineVirtualCamera virCam = null;
+    public CinemachineVirtualCamera virStopCam = null;
     public GameObject eventCam = null;
+
+
+    private void Start()
+    {
+        
+    }
+
+    private void Update()
+    {
+        if(!GameManager.Instance.playerCanControl)
+        {
+            virStopCam = virCam;
+            virStopCam.GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.m_MaxSpeed = 0;
+            virStopCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 0;
+            virStopCam.Priority = 30;
+        }
+        else
+        {
+            virCam = virStopCam;
+            virCam.GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.m_MaxSpeed = 300;
+            virCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 300;
+            virStopCam.Priority = 10;
+        }
+    }
 
     public void CameraLocked(bool cameraLocked)
     {

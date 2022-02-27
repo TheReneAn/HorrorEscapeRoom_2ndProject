@@ -24,7 +24,7 @@ public class Event1 : MonoBehaviour
             {
                 bStart = false;
                 gameObject.SetActive(false);
-                GameManager.Instance.playerCanControl = true;
+                //GameManager.Instance.playerCanControl = true;
             }
         }
     }

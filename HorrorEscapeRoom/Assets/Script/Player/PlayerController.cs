@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool isFlashOn;
     private Animator anim;
     private RaycastHit hit;
-
+    
     public Transform cameraTransform;
 
     private void Start()
@@ -37,19 +37,15 @@ public class PlayerController : MonoBehaviour
         if (GameManager.Instance.playerCanControl)
         {
             PlayerMoving();
-            CameraManager.Instance.EventCamOff();
         }
         else
         {
-            CameraManager.Instance.EventCamOn();
+
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (GameManager.Instance.playerCanControl)
-                GameManager.Instance.playerCanControl = false;
-            else
-                GameManager.Instance.playerCanControl = true;
+            CameraManager.Instance.EventCamOn();
         }
     }
 
