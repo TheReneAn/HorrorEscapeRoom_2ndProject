@@ -51,6 +51,7 @@ public class Flashlight : MonoBehaviour
                     curTime = 0;
                 }
             }
+
             var pov = CameraManager.Instance.virCam.GetCinemachineComponent<CinemachinePOV>();
             gameObject.transform.rotation = Quaternion.Euler(new Vector3(pov.m_VerticalAxis.Value, pov.m_HorizontalAxis.Value, 0));
         }
