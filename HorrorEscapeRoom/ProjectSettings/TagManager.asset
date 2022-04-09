@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Interaction
+  - Ground
+  - Item
+  - Closet
+  - Door
+  - Desk
   layers:
   - Default
   - TransparentFX

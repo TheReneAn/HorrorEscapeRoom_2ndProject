@@ -43,11 +43,13 @@ public class CameraManager : MonoBehaviour
             virStopCam = virCam;
             virStopCam.GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.m_MaxSpeed = 0;
             virStopCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 0;
+            virStopCam.GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.Value = virCam.GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.Value;
+            virStopCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.Value = virCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.Value;
             virStopCam.Priority = 30;
         }
         else
         {
-            virCam = virStopCam;
+            //virCam = virStopCam;
             virCam.GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.m_MaxSpeed = 300;
             virCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 300;
             virStopCam.Priority = 10;

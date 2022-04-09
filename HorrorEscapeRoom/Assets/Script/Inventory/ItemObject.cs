@@ -7,6 +7,8 @@ public class ItemObject : MonoBehaviour
 {
     [SerializeField]
     Item item;
+    [SerializeField]
+    int convNum;
 
     void Start()
     {
@@ -23,7 +25,8 @@ public class ItemObject : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             InventoryManager.Instance.AddItem(item);
-            Debug.Log("ItemGet");
+            GameManager.Instance.playerCanControl = false;
+            DialogueManager.Instance.StartConversation(convNum);
             Destroy(gameObject);
         }
     }

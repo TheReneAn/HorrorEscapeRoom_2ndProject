@@ -27,4 +27,6 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public bool playerCanControl = true;
+    public int curDiagNum;
+    public List<int> invItemIdxList;
 }

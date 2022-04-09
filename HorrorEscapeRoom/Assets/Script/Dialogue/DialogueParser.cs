@@ -4,48 +4,48 @@ using UnityEngine;
 
 public class DialogueParser : MonoBehaviour
 {
-   public Dialogue[] Parse(string _CSVFileName)
-    {
-        List<Dialogue> dialogueList = new List<Dialogue>();
-        TextAsset csvData = Resources.Load<TextAsset>(_CSVFileName);
+   //public Conversation[] Parse(string _CSVFileName)
+   // {
+   //     List<Conversation> dialogueList = new List<Conversation>();
+   //     TextAsset csvData = Resources.Load<TextAsset>(_CSVFileName);
 
-        string[] data = csvData.text.Split(new char[] { '\n' });
+   //     string[] data = csvData.text.Split(new char[] { '\n' });
 
-        for(int i = 1; i < data.Length;)
-        {
-            string[] row = data[i].Split(new char[] { ',' });
+   //     for(int i = 1; i < data.Length;)
+   //     {
+   //         string[] row = data[i].Split(new char[] { ',' });
 
-            Debug.Log(row[0]);
-            Debug.Log(row[1]);
-            Debug.Log(row[2]);
+   //         //Debug.Log(row[0]);
+   //         //Debug.Log(row[1]);
+   //         //Debug.Log(row[2]);
 
-            Dialogue dialogue = new Dialogue();
+   //         Conversation dialogue = new Conversation();
 
-            dialogue.name = row[1];
-            List<string> contextList = new List<string>();
+   //         dialogue.name = row[1];
+   //         List<string> contextList = new List<string>();
 
-            do
-            {
-                contextList.Add(row[2]);
+   //         do
+   //         {
+   //             contextList.Add(row[2]);
 
-                if (++i < data.Length)
-                {
-                    row = data[i].Split(new char[] { ',' });
-                }
-                else
-                {
-                    break;
-                }
-            } while (row[0].ToString() == "");
+   //             if (++i < data.Length)
+   //             {
+   //                 row = data[i].Split(new char[] { ',' });
+   //             }
+   //             else
+   //             {
+   //                 break;
+   //             }
+   //         } while (row[0].ToString() == "");
 
-            dialogue.conTexts = contextList.ToArray();
-            dialogueList.Add(dialogue);
-        }
-        return dialogueList.ToArray();
-    }
+   //         dialogue. = contextList.ToArray();
+   //         dialogueList.Add(dialogue);
+   //     }
+   //     return dialogueList.ToArray();
+   // }
 
-    private void Start()
-    {
-        Parse("test");
-    }
+   // private void Start()
+   // {
+   //     Parse("test");
+   // }
 }

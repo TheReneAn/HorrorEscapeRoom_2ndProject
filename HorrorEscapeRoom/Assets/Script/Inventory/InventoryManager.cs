@@ -39,6 +39,7 @@ public class InventoryManager : MonoBehaviour
     public void AddItem(Item _item)
     {
         invItems.Add(_item);
+        GameManager.Instance.invItemIdxList.Add(_item.itemIdx);
         InitInventory();
     }
 
